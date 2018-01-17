@@ -10,6 +10,9 @@ import { CalendarContainerComponent } from './containers/calendar-container/cale
 import { CheckComponent } from './components/check/check.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ContentComponent } from './containers/content/content.component';
+import { NgFooterComponent } from './containers/ng-footer/ng-footer.component';
+import { FooterSocialComponent } from './components/footer-social/footer-social.component';
+import { FooterCopyrightComponent } from './components/footer-copyright/footer-copyright.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { ContentComponent } from './containers/content/content.component';
     CalendarContainerComponent,
     CheckComponent,
     CalendarComponent,
-    ContentComponent
+    ContentComponent,
+    NgFooterComponent,
+    FooterSocialComponent,
+    FooterCopyrightComponent
   ],
   imports: [
     BrowserModule
