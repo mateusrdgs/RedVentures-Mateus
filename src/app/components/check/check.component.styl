@@ -1,0 +1,35 @@
+@import 'variables'
+
+:host
+  display flex
+  flex-direction column
+  justify-content space-between
+  flex 1 1 50%
+  flex-direction column
+  height 100%
+  max-height 15.75rem
+  max-width 11.25rem
+  width 100%
+
+[class$="label"],
+[class$="date"]
+  font-family 'Heebo', sans-serif
+
+[class$="label"]
+  color $primary-grey
+  font-size 1.4rem
+
+[class$="date"]
+  color $secondary-grey
+  font-size 1.3rem
+
+.check-in,
+.check-out
+  align-items center
+  display flex
+  flex-direction column
+
+@media screen and (min-width: 31rem)
+  .check-in,
+  .check-out
+    align-items flex-start
