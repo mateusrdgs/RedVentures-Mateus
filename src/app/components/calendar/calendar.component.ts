@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CalendarEmitter } from './../../emitters/calendar.emitter';
+
+import { Check } from './../../enumerators/check.enum';
+
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'calendar',
@@ -20,6 +24,9 @@ export class CalendarComponent implements OnInit {
     31, this.isLeapYear(this.currentDate.getFullYear()) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
   ];
   public daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  private checkInDate: Date;
+  private checkOutDate: Date;
+  private acc = 1;
 
   /*
   public january = [
@@ -38,7 +45,9 @@ export class CalendarComponent implements OnInit {
     [ 28, 29, 30, 31, 1, 2, 3]
   ];*/
 
-  constructor() { }
+  constructor(
+    private _calendarEmitter: CalendarEmitter
+  ) { }
 
   ngOnInit() {
     this.matrix = this.createCalendar(
@@ -66,7 +75,7 @@ export class CalendarComponent implements OnInit {
     );
   }
 
-  private createCalendar(month: number, firstDayOfMonth: number) {
+  private createCalendar(month: number, firstDayOfMonth: number): any[] {
     let dayOfWeek = 0;
     let dayAcc = 0;
     const matrix = this.createMatrix(
@@ -89,10 +98,32 @@ export class CalendarComponent implements OnInit {
           if (dayAcc >= this.daysOfMonth[month]) {
             dayAcc = 0;
           }
-          matrix[week][day] = ++dayAcc;
+          dayAcc++;
+          matrix[week][day] = {
+            day: dayAcc,
+            date: new Date(
+              this.currentDate.getFullYear(),
+              this.currentDate.getMonth(),
+              dayAcc
+            ).toLocaleDateString(),
+          };
         }
       }
     }
     return matrix;
+  }
+
+  public onDatePicked(event): void {
+    const date = new Date(event);
+    if (!this.checkInDate && !this.checkOutDate) {
+      this.checkInDate = date;
+      this.checkOutDate = date;
+      this._calendarEmitter.datePicked(date, Check.In);
+    } else if (date < this.checkOutDate) {
+      this.checkInDate = date;
+    } else {
+      this.checkOutDate = date;
+      this._calendarEmitter.datePicked(date, Check.Out);
+    }
   }
 }

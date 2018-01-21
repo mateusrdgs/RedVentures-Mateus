@@ -12,7 +12,7 @@
   </thead>
   <tbody class="calendar__body">
     <tr class="calendar__body__row" *ngFor="let week of matrix">
-      <td class="calendar__body__row__data" *ngFor="let day of week" [textContent]="day?.day || day" [attr.data-date]="day?.date"></td>
+      <td class="calendar__body__row__data" *ngFor="let day of week" calendarDate (datePicked)="onDatePicked($event)" [textContent]="day?.day || day" [attr.data-date]="day?.date"></td>
     </tr>
   </tbody>
 </table>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +14,9 @@ import { ContentComponent } from './containers/content/content.component';
 import { NgFooterComponent } from './containers/ng-footer/ng-footer.component';
 import { FooterSocialComponent } from './components/footer-social/footer-social.component';
 import { FooterCopyrightComponent } from './components/footer-copyright/footer-copyright.component';
+import { CalendarDateDirective } from './directives/calendar-date.directive';
 
+import { CalendarEmitter } from './emitters/calendar.emitter';
 
 @NgModule({
   declarations: [
@@ -27,12 +30,16 @@ import { FooterCopyrightComponent } from './components/footer-copyright/footer-c
     ContentComponent,
     NgFooterComponent,
     FooterSocialComponent,
-    FooterCopyrightComponent
+    FooterCopyrightComponent,
+    CalendarDateDirective
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    CalendarEmitter,
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
