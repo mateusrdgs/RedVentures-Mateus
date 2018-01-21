@@ -7,6 +7,8 @@
   flex 1 1 50%
   flex-direction column
   height 100%
+  margin-top 1.6rem
+  min-height 15.75rem
   max-height 15.75rem
   max-width 11.25rem
   width 100%
@@ -25,12 +27,18 @@
 
 .check-in,
 .check-out
-  justify-content space-between
+  align-items  center
   display flex
+  justify-content space-between
   flex-direction column
   height 3.9rem
 
-@media screen and (min-width: 31rem)
+@media screen and (min-width: 37.5rem)
+  :host
+    margin-top 0
+    order 1
+
+@media screen and (min-width: 40rem)
   .check-in,
   .check-out
     align-items flex-start

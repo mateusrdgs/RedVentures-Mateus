@@ -1,3 +1,18 @@
-<p>
-  calendar works!
-</p>
+<table class="calendar">
+  <thead class="calendar__head">
+    <tr class="calendar__head__row">
+      <th class="calendar__head__row__header">
+        January / 2018
+      </th>
+    </tr>
+    <tr class="calendar__head__row">
+      <th class="calendar__head__row__header" *ngFor="let day of daysOfWeek" [textContent]="day">
+      </th>
+    </tr>
+  </thead>
+  <tbody class="calendar__body">
+    <tr class="calendar__body__row" *ngFor="let week of matrix">
+      <td class="calendar__body__row__data" *ngFor="let day of week" [textContent]="day?.day || day" [attr.data-date]="day?.date"></td>
+    </tr>
+  </tbody>
+</table>

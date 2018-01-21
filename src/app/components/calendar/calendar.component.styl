@@ -1,0 +1,81 @@
+@import 'variables'
+
+:host
+  display flex
+  flex-direction column
+  max-width 22rem
+  transition $resize-transition
+  width 100%
+
+.calendar
+  display flex
+  flex-direction column
+  width 100%
+
+.calendar__head,
+.calendar__body
+  display flex
+  flex-direction column
+
+.calendar__head,
+.calendar__body
+  flex 1 0 auto
+
+.calendar__head
+  border-top .1rem solid #E3E3E3
+  border-bottom .1rem solid #E3E3E3
+
+.calendar__head__row,
+.calendar__body__row
+  display flex
+
+.calendar__head__row
+  padding .5rem 0
+  &:first-child
+    justify-content center
+    & > *
+      color $primary-grey
+      font 400 1rem 'Heebo', sans-serif
+  &:nth-child(2)
+    justify-content space-around
+    & > *
+      color $secondary-grey
+      font 400 1rem 'Heebo', sans-serif
+
+.calendar__body__row
+  justify-content space-around
+  &:first-child
+    padding-top .5rem
+
+.calendar__body__row__data
+  align-items center
+  border-radius 50%
+  display flex
+  color $primary-grey
+  font 400 1rem 'Heebo', sans-serif
+  justify-content center
+  padding .5rem 0
+  min-height 2.5rem
+  min-width 2.5rem
+  transition $hover-transition
+  &:hover
+    background-color $primary-green
+    color $primary-white
+    cursor pointer
+
+.calendar__body__row:first-child
+  & .calendar__body__row__data:first-child
+    color $calendar-border
+
+.calendar__body__row:last-child
+  & .calendar__body__row__data:nth-last-child(-n+3)
+    color $calendar-border
+
+@media screen and (min-width: 37.5rem)
+  :host
+    max-width 18rem
+    order 2
+
+@media screen and (min-width: 40rem)
+  :host
+    max-width 22rem

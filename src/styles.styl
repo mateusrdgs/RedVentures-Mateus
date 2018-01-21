@@ -1,11 +1,34 @@
-@import 'shared'
+@import 'variables'
 
 *::before, *, *::after
   box-sizing border-box
 
 html, body
   height 100%
+  overflow auto
   width 100%
+
+.button
+  background-color transparent
+  border .15rem solid $secondary-grey
+  border-radius 2rem
+  color $secondary-grey
+  height 3.125rem
+  width 11.25rem
+
+.button.primary
+  border-color $primary-orange
+  color $primary-orange
+  font 700 .9rem 'Heebo', sans-serif
+  transition $hover-transition
+  &:hover
+    background-color $primary-orange
+    color $primary-white
+    cursor pointer
+
+.button.info
+  border-color $primary-green
+  color $primary-green
 
 
 
