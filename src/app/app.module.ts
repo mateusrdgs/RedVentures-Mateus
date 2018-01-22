@@ -19,6 +19,8 @@ import { CalendarDateDirective } from './directives/calendar-date.directive';
 import { CalendarEmitter } from './emitters/calendar.emitter';
 import { ResultsContainerComponent } from './containers/results-container/results-container.component';
 import { PriceRangeComponent } from './components/price-range/price-range.component';
+import { StarsFilterComponent } from './components/stars-filter/stars-filter.component';
+import { StarComponent } from './components/star/star.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { PriceRangeComponent } from './components/price-range/price-range.compon
     FooterCopyrightComponent,
     CalendarDateDirective,
     ResultsContainerComponent,
-    PriceRangeComponent
+    PriceRangeComponent,
+    StarsFilterComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule

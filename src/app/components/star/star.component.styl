@@ -1,0 +1,19 @@
+@import 'variables'
+
+:host
+  display flex
+  height 100%
+  width 100%
+
+.star
+  fill $primary-white
+  fill-rule evenodd
+  stroke $star-orange
+  transition $hover-transition
+  width 100%
+  &:hover
+    cursor pointer
+    transform rotateZ(10deg)
+
+.filled
+  fill $star-orange

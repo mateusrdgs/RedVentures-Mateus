@@ -1,0 +1,6 @@
+<span class="stars__filter__label">Stars</span>
+<ul class="stars-filter__list">
+  <li class="stars-filter__list__item" *ngFor="let star of stars; let i = index">
+    <star [filled]="star.filled" [index]="i" (starFilter)="onStarFilter($event)" ></star>
+  </li>
+</ul>
