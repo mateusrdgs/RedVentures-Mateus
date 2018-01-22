@@ -1,7 +1,7 @@
 <span class="price-range__label">Price range</span>
 <div class="price-range__container">
-  <input type="range" class="price-range__container__min">
-  <input type="range" class="price-range__container__max">
+  <input type="range" class="price-range__container__min" priceRange [min]="min" [max]="max/2">
+  <input type="range" class="price-range__container__max" priceRange [min]="max/2" [max]="max">
 </div>
 <div class="price-range__data">
   <div class="price-range__data__min">

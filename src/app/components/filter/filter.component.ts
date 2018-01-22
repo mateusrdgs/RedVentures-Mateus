@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.styl']
 })
 export class FilterComponent implements OnInit {
+
+  min = 0;
+  max = 100;
 
   constructor() { }
 

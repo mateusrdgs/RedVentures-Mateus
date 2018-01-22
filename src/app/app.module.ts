@@ -27,6 +27,7 @@ import { HotelComponent } from './components/hotel/hotel.component';
 import { FilterComponent } from './components/filter/filter.component';
 
 import { HotelsService } from './services/hotels.service';
+import { PriceRangeDirective } from './directives/price-range.directive';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { HotelsService } from './services/hotels.service';
     StarComponent,
     HotelsComponent,
     HotelComponent,
-    FilterComponent
+    FilterComponent,
+    PriceRangeDirective
   ],
   imports: [
     BrowserModule,

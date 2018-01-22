@@ -16,35 +16,47 @@
   font 400 .9rem 'Heebo', sans-serif
 
 .price-range__container
-  position relative
+  display flex
+  align-content space-around
   max-width 100%
   text-align center
 
 .price-range__container__min,
 .price-range__container__max
-  height .5rem
+  height .4rem
   background-color $primary-orange
   outline none
-  pointer-events none
-  position absolute
-  left 0
-  top 50%
   transition all .2s
   -webkit-appearance none
   -webkit-transition .2s
-  width 100%
+  width 50%
+  &:hover
+    cursor pointer
+  &::-moz-focus-outer
+    border 0
+  &::-moz-range-track
+    height .4rem
+    background-color $primary-orange
+
 
 .price-range__container__min,
 .price-range__container__max
   &::-webkit-slider-thumb
     background-color $primary-white
-    border .25rem solid $primary-orange
+    border .24rem solid $primary-orange
     border-radius 50%
     height 1.5rem
-    pointer-events all
-    position relative
     -webkit-appearance none
     width 1.5rem
+    z-index 1
+    &:hover
+      cursor pointer
+  &::-moz-range-thumb
+    background-color $primary-white
+    border .3rem solid $primary-orange
+    border-radius 50%
+    height 1.2rem
+    width 1.2rem
     z-index 1
 
 .price-range__data
