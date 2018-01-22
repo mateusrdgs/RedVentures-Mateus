@@ -13,13 +13,13 @@ html, body
   border .15rem solid $secondary-grey
   border-radius 2rem
   color $secondary-grey
+  font 700 .9rem 'Heebo', sans-serif
   height 3.125rem
   width 11.25rem
 
 .button.primary
   border-color $primary-orange
   color $primary-orange
-  font 700 .9rem 'Heebo', sans-serif
   transition $hover-transition
   &:hover
     background-color $primary-orange
@@ -29,6 +29,11 @@ html, body
 .button.info
   border-color $primary-green
   color $primary-green
+  transition $hover-transition
+  &:hover
+    background-color $primary-green
+    color $primary-white
+    cursor pointer
 
 
 

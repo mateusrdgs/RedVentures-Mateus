@@ -1,0 +1,19 @@
+:host
+  display flex
+  width 100%
+
+.hotels
+  display flex
+  flex-direction column
+  list-style none
+  margin 0
+  padding 0
+
+.hotels__item
+  display flex
+  &:last-child
+    margin-bottom 3rem
+
+@media screen and (min-width 48rem)
+  :host
+    width 75%

@@ -21,6 +21,8 @@ import { ResultsContainerComponent } from './containers/results-container/result
 import { PriceRangeComponent } from './components/price-range/price-range.component';
 import { StarsFilterComponent } from './components/stars-filter/stars-filter.component';
 import { StarComponent } from './components/star/star.component';
+import { HotelsComponent } from './components/hotels/hotels.component';
+import { HotelComponent } from './components/hotel/hotel.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { StarComponent } from './components/star/star.component';
     ResultsContainerComponent,
     PriceRangeComponent,
     StarsFilterComponent,
-    StarComponent
+    StarComponent,
+    HotelsComponent,
+    HotelComponent
   ],
   imports: [
     BrowserModule
