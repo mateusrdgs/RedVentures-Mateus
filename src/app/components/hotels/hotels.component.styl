@@ -1,5 +1,6 @@
 :host
   display flex
+  max-width 56rem
   width 100%
 
 .hotels
@@ -8,12 +9,23 @@
   list-style none
   margin 0
   padding 0
+  width 100%
 
 .hotels__item
   display flex
-  &:last-child
-    margin-bottom 3rem
+  justify-content center
+  padding 5rem 0 0 0
+  width 100%
+  &:first-child
+    padding-top 3rem
 
-@media screen and (min-width 48rem)
-  :host
-    width 75%
+@media screen and (min-width 37.5rem)
+  .hotels__item
+    padding-top 2rem
+    &:first-child
+      padding-top 0
+
+@media screen and (min-width 81.25rem)
+  .hotels__item
+    &:first-child
+      margin-top 2rem

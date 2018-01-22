@@ -23,6 +23,7 @@ import { StarsFilterComponent } from './components/stars-filter/stars-filter.com
 import { StarComponent } from './components/star/star.component';
 import { HotelsComponent } from './components/hotels/hotels.component';
 import { HotelComponent } from './components/hotel/hotel.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HotelComponent } from './components/hotel/hotel.component';
     StarsFilterComponent,
     StarComponent,
     HotelsComponent,
-    HotelComponent
+    HotelComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule
