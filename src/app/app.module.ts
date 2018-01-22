@@ -17,6 +17,8 @@ import { FooterCopyrightComponent } from './components/footer-copyright/footer-c
 import { CalendarDateDirective } from './directives/calendar-date.directive';
 
 import { CalendarEmitter } from './emitters/calendar.emitter';
+import { ResultsContainerComponent } from './containers/results-container/results-container.component';
+import { PriceRangeComponent } from './components/price-range/price-range.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CalendarEmitter } from './emitters/calendar.emitter';
     NgFooterComponent,
     FooterSocialComponent,
     FooterCopyrightComponent,
-    CalendarDateDirective
+    CalendarDateDirective,
+    ResultsContainerComponent,
+    PriceRangeComponent
   ],
   imports: [
     BrowserModule
