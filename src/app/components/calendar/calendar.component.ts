@@ -115,7 +115,15 @@ export class CalendarComponent implements OnInit {
 
   public onDatePicked(event): void {
     const date = new Date(event);
-    if (!this.checkInDate && !this.checkOutDate) {
+    if (this.acc % 2 !== 0) {
+      this.checkInDate = date;
+      this._calendarEmitter.datePicked(date, Check.In);
+    } else {
+      this.checkOutDate = date;
+      this._calendarEmitter.datePicked(date, Check.Out);
+    }
+    this.acc += 1;
+    /*if (!this.checkInDate && !this.checkOutDate) {
       this.checkInDate = date;
       this.checkOutDate = date;
       this._calendarEmitter.datePicked(date, Check.In);
@@ -124,6 +132,6 @@ export class CalendarComponent implements OnInit {
     } else {
       this.checkOutDate = date;
       this._calendarEmitter.datePicked(date, Check.Out);
-    }
+    }*/
   }
 }

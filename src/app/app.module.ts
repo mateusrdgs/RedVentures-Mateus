@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -25,6 +26,9 @@ import { HotelsComponent } from './components/hotels/hotels.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { FilterComponent } from './components/filter/filter.component';
 
+import { HotelsService } from './services/hotels.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,11 +52,13 @@ import { FilterComponent } from './components/filter/filter.component';
     FilterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     CalendarEmitter,
-    DatePipe
+    DatePipe,
+    HotelsService
   ],
   bootstrap: [AppComponent]
 })
