@@ -23,7 +23,6 @@ export class FilterComponent implements OnInit {
   }
 
   onStarsEmitted(event: number): void {
-    console.log(event);
     this.starsEmitter.emit(event);
   }
 

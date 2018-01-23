@@ -37,8 +37,8 @@ export class PriceRangeComponent implements OnInit, AfterViewInit {
   private _sliderSubscription: Subscription;
   private _slider1Observable: Observable<any>;
   private _slider2Observable: Observable<any>;
-  private minRange: number;
-  private maxRange: number;
+  public minRange: number;
+  public maxRange: number;
 
   public slidedLeft: number;
   public slidedRight: number;
