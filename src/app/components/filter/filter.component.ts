@@ -8,8 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
 
-  min = 0;
-  max = 100;
+  @Input() min: number;
+  @Input() max: number;
 
   constructor() { }
 

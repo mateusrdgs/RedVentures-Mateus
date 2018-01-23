@@ -17,8 +17,8 @@
 
 .price-range__container
   display flex
-  align-content space-around
   max-width 100%
+  position relative
   text-align center
 
 .price-range__container__min,
@@ -26,10 +26,15 @@
   height .4rem
   background-color $primary-orange
   outline none
+  position absolute
+  pointer-events none
+  left 0
+  top 50%
   transition all .2s
   -webkit-appearance none
+  -moz-appearance none
   -webkit-transition .2s
-  width 50%
+  width 100%
   &:hover
     cursor pointer
   &::-moz-focus-outer
@@ -37,26 +42,29 @@
   &::-moz-range-track
     height .4rem
     background-color $primary-orange
-
-
-.price-range__container__min,
-.price-range__container__max
+    left 0
+    pointer-events none
+    position absolute
+    top 50%
   &::-webkit-slider-thumb
     background-color $primary-white
     border .24rem solid $primary-orange
     border-radius 50%
     height 1.5rem
+    pointer-events all
+    position relative
     -webkit-appearance none
     width 1.5rem
     z-index 1
-    &:hover
-      cursor pointer
   &::-moz-range-thumb
-    background-color $primary-white
-    border .3rem solid $primary-orange
+    background-color $primary-orange
+    border 0
     border-radius 50%
-    height 1.2rem
-    width 1.2rem
+    height 1.5rem
+    -moz-appearance none
+    pointer-events all
+    position relative
+    width 1.5rem
     z-index 1
 
 .price-range__data
