@@ -15,7 +15,7 @@ export class HotelsPipe implements PipeTransform {
       if (Array.isArray(hotels)) {
         return hotels.filter((hotel: Hotel) => hotel.Price >= prices[0]).filter((hotel: Hotel) => hotel.Price <= prices[1])
           .filter((hotel: Hotel) => {
-            return stars ? hotel.Rate >= stars : hotel;
+            return stars ? hotel.Rate === stars : hotel;
           });
       }
     } else {

@@ -1,0 +1,25 @@
+:host
+  display flex
+  height 2rem
+  transform translate(-50%, -30%) rotateZ(-90deg)
+  top 40%
+  left 50%
+  position absolute
+  width 8rem
+
+.progress
+  background-color #FFF
+  height 100%
+  width 100%
+  border 0
+  &::-webkit-progress-bar
+    background-color #FFF
+  &::-webkit-progress-value
+    opacity .7
+    background linear-gradient(45deg, #EE6F48, #F98100)
+    border-radius .2rem
+  &::-moz-progress-bar
+    opacity .7
+    background linear-gradient(45deg, #EE6F48, #F98100)
+    border-radius .2rem
+

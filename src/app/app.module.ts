@@ -29,6 +29,9 @@ import { FilterComponent } from './components/filter/filter.component';
 import { HotelsService } from './services/hotels.service';
 import { PriceRangeDirective } from './directives/price-range.directive';
 import { HotelsPipe } from './pipes/hotels.pipe';
+import { HotelFrontComponent } from './components/hotel-front/hotel-front.component';
+import { HotelBackComponent } from './components/hotel-back/hotel-back.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 
 @NgModule({
@@ -53,7 +56,10 @@ import { HotelsPipe } from './pipes/hotels.pipe';
     HotelComponent,
     FilterComponent,
     PriceRangeDirective,
-    HotelsPipe
+    HotelsPipe,
+    HotelFrontComponent,
+    HotelBackComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,

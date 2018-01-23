@@ -1,0 +1,32 @@
+@import 'variables'
+
+:host
+  display flex
+  flex-direction column
+
+.hotel-item__flipper__back__title
+  color $primary-orange
+  font 700 1rem 'Heebo', sans-serif
+  text-transform uppercase
+
+.hotel-item__flipper__back__price-history
+  display flex
+  flex-direction row
+  justify-content space-around
+  list-style none
+  margin 0
+  height 10rem
+  padding 0
+
+.hotel-item__flipper__back__price-history__item
+  align-items center
+  flex 1
+  display flex
+  flex-direction column
+  position relative
+  width 2rem
+
+.hotel-item__flipper__back__price-history__item__month
+  color $secondary-grey
+  font 400 .8rem 'Heebo', sans-serif
+  margin-top auto

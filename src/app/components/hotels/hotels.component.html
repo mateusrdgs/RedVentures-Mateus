@@ -1,5 +1,12 @@
 <ul class="hotels">
-  <li class="hotels__item" *ngFor="let hotel of hotels">
-    <hotel [hotel]="hotel"></hotel>
-  </li>
+  <ng-container *ngIf="hotels?.length else noHotels">
+    <li class="hotels__item" *ngFor="let hotel of hotels">
+      <hotel [hotel]="hotel"></hotel>
+    </li>
+  </ng-container>
+  <ng-template #noHotels>
+    <li class="hotels__item">
+      <h2 class="hotels__item__warning">0 hotels found</h2>
+    </li>
+  </ng-template>
 </ul>

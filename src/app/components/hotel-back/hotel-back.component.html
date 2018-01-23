@@ -1,0 +1,7 @@
+<h2 class="hotel-item__flipper__back__title" [textContent]="title"></h2>
+<ul class="hotel-item__flipper__back__price-history">
+  <li class="hotel-item__flipper__back__price-history__item" *ngFor="let price of priceHistory">
+    <progress-bar [value]="price.Value"></progress-bar>
+    <span class="hotel-item__flipper__back__price-history__item__month" [textContent]="price.Month"></span>
+  </li>
+</ul>

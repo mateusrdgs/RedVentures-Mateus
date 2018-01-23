@@ -1,4 +1,8 @@
-<div class="hotel-item__data">
+<div class="hotel-item__flipper">
+  <hotel-front [name]="hotel?.Name" [description]="hotel?.Description" [image]="hotel?.Image"></hotel-front>
+</div>
+
+<!--<div class="hotel-item__data">
   <img [src]="hotel?.Image" alt="" class="hotel-item__data__image">
   <div class="hotel-item__data__content">
     <h2 class="hotel-item__data__content__title" [textContent]="hotel?.Name"></h2>
@@ -12,4 +16,4 @@
 <div class="hotel-item__price">
   <span class="hotel-item__price__label">Total</span>
   <span class="hotel-item__price__value">$670</span>
-</div>
+</div>-->
