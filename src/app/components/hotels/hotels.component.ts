@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { Hotel } from './../../models/hotel';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotels.component.styl']
 })
 export class HotelsComponent implements OnInit {
+
+  @Input() hotels: Hotel[];
 
   constructor() { }
 

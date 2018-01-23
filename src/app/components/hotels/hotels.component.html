@@ -1,8 +1,5 @@
 <ul class="hotels">
-  <li class="hotels__item">
-    <hotel></hotel>
-  </li>
-  <li class="hotels__item">
-    <hotel></hotel>
+  <li class="hotels__item" *ngFor="let hotel of hotels">
+    <hotel [hotel]="hotel"></hotel>
   </li>
 </ul>

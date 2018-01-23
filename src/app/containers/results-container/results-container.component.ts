@@ -15,7 +15,9 @@ import { Hotel } from '../../models/hotel';
 export class ResultsContainerComponent implements OnInit {
 
   public hotels$: Observable<Hotel[]>;
+  public hotels: Hotel[];
   public prices: number[];
+  public stars: number;
   public min;
   public max;
 
@@ -26,10 +28,24 @@ export class ResultsContainerComponent implements OnInit {
   ngOnInit() {
     this.hotels$ = this._hotelsService.getHotels();
     this.hotels$.subscribe(hotels => {
+      this.hotels = hotels;
       const prices = hotels.map(hotel => hotel.Price);
-      this.min = Math.floor(Math.min(...prices));
-      this.max = Math.floor(Math.max(...prices));
+      this.prices = [
+        Math.floor(Math.min(...prices)),
+        Math.floor(Math.max(...prices))
+      ];
+      this.min = this.prices[0];
+      this.max = this.prices[1];
     });
+  }
+
+  onRangeEmitted(event: number[]): void {
+    const [ minRange, maxRange ] = event;
+    this.prices = [ minRange, maxRange ];
+  }
+
+  onStarsEmitted(event: number): void {
+    this.stars = event;
   }
 
 }

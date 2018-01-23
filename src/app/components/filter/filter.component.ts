@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,10 +10,21 @@ export class FilterComponent implements OnInit {
 
   @Input() min: number;
   @Input() max: number;
+  @Output() rangeEmitter: EventEmitter<number[]> = new EventEmitter<number[]>();
+  @Output() starsEmitter: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onRangeEmitted(event: number[]): void {
+    this.rangeEmitter.emit(event);
+  }
+
+  onStarsEmitted(event: number): void {
+    console.log(event);
+    this.starsEmitter.emit(event);
   }
 
 }

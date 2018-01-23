@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarsFilterComponent implements OnInit {
 
-  public stars = [
+  @Output() starsEmitter: EventEmitter<number> = new EventEmitter<any>();
+
+  public stars: any = [
     { filled: true },
     { filled: true },
     { filled: true },
@@ -23,13 +25,11 @@ export class StarsFilterComponent implements OnInit {
   }
 
   onStarFilter(event: number) {
-    for (let index = 0; index < this.stars.length; index++) {
-      if (index <= event) {
-        this.stars[index].filled = true;
-      } else {
-        this.stars[index].filled = false;
-      }
-    }
+    this.stars = this.stars.map((star: any, index: number) => {
+      return index <= event ? { filled: true } : { filled: false };
+    });
+    const stars = this.stars.filter(star => star.filled).length;
+    this.starsEmitter.emit(stars);
   }
 
 }
