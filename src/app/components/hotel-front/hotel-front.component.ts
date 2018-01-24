@@ -1,3 +1,4 @@
+import { PriceHistory } from './../../models/price-history';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -11,6 +12,7 @@ export class HotelFrontComponent implements OnInit {
   @Input() name: string;
   @Input() description: string;
   @Input() image: string;
+  @Input() priceHistory: PriceHistory[];
 
   constructor() { }
 
