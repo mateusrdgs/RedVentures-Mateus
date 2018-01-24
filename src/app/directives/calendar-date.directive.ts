@@ -18,7 +18,7 @@ export class CalendarDateDirective {
   @HostListener('click', ['$event'])
   public onClick(event): void {
     const currentDate = new Date(
-      Date.now()
+      this._elementRef.nativeElement.getAttribute('data-date')
     ).setHours(0, 0, 0, 0);
     const pickedDate = new Date(
       this._elementRef.nativeElement.getAttribute('data-date')

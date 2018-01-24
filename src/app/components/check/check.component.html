@@ -6,4 +6,4 @@
   <span class="check-out__label">CHECK-OUT</span>
   <span class="check-out__date" [textContent]="CheckOut">Choose a date</span>
 </div>
-<button class="button primary">Search hotels</button>
+<button class="button primary" [disabled]="days <= 0" (click)="onClick()">Search hotels</button>

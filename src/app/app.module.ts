@@ -29,8 +29,11 @@ import { StarsFilterComponent } from './components/stars-filter/stars-filter.com
 import { CalendarDateDirective } from './directives/calendar-date.directive';
 import { PriceRangeDirective } from './directives/price-range.directive';
 
-import { CalendarEmitter } from './emitters/calendar.emitter';
 import { HotelsService } from './services/hotels.service';
+
+import { CalendarEmitter } from './emitters/calendar.emitter';
+import { CheckoutEmitter } from './emitters/checkout.emitter';
+
 import { HotelsPipe } from './pipes/hotels.pipe';
 
 import { HotelFrontComponent } from './components/hotel-front/hotel-front.component';
@@ -70,6 +73,7 @@ import { HotelBackComponent } from './components/hotel-back/hotel-back.component
   ],
   providers: [
     CalendarEmitter,
+    CheckoutEmitter,
     DatePipe,
     HotelsService
   ],

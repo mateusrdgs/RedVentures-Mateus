@@ -7,18 +7,18 @@ export class Hotel {
   private _rate: number;
   private _price: number;
   private _priceHistory: PriceHistory[];
+  private _totalPrice: number;
 
-  constructor(
-    name: string, description: string,
-    image: string, rate: number,
-    price: number, priceHistory: PriceHistory[]
-  ) {
-    this.Name = name;
-    this.Description = description;
-    this.Image = image;
-    this.Rate = rate;
-    this.Price = price;
-    this.PriceHistory = priceHistory;
+  constructor(...args: any[]) {
+    this.Name = args[0];
+    this.Description = args[1];
+    this.Image = args[2];
+    this.Rate = args[3];
+    this.Price = args[4];
+    this.PriceHistory = args[5];
+    if (args.length > 6) {
+      this.TotalPrice = args[6];
+    }
   }
 
   get Name(): string {
@@ -67,6 +67,14 @@ export class Hotel {
 
   set PriceHistory(priceHistory: PriceHistory[]) {
     this._priceHistory = priceHistory;
+  }
+
+  get TotalPrice(): number {
+    return this._totalPrice;
+  }
+
+  set TotalPrice(totalPrice: number) {
+    this._totalPrice = totalPrice;
   }
 
 }

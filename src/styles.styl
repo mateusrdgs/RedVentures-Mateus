@@ -26,6 +26,12 @@ html, body
     background-color $primary-orange
     color $primary-white
     cursor pointer
+  &:disabled
+    opacity .7
+    &:hover
+      background-color transparent
+      color $primary-orange
+      cursor default
 
 .button.info
   border-color $primary-green

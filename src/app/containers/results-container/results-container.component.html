@@ -1,5 +1,5 @@
 <h2 class="results-container__title">Best choices between date start and date end</h2>
 <div class="results-container__components">
   <filter [min]="min" [max]="max" (rangeEmitter)="onRangeEmitted($event)" (starsEmitter)="onStarsEmitted($event)"></filter>
-  <hotels [hotels]="hotels$ | async | hotels:prices:stars"></hotels>
+  <hotels [hotels]="hotels | hotels:prices:stars:days"></hotels>
 </div>

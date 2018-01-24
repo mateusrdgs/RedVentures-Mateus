@@ -51,7 +51,7 @@
   align-items center
   border-radius 50%
   display flex
-  color $primary-grey
+  color $calendar-border
   font 400 1rem 'Heebo', sans-serif
   justify-content center
   min-height 2.5rem
@@ -61,6 +61,9 @@
     background-color $primary-green
     color $primary-white
     cursor pointer
+
+.currentMonth
+  color $primary-grey
 
 .picked
   background-color $primary-green
@@ -72,14 +75,13 @@
     background-color $primary-white
     color $primary-green
 
-
-.calendar__body__row:first-child
+/*.calendar__body__row:first-child
   & .calendar__body__row__data:first-child
     color $calendar-border
 
 .calendar__body__row:last-child
   & .calendar__body__row__data:nth-last-child(-n+3)
-    color $calendar-border
+    color $calendar-border*/
 
 @media screen and (min-width: 37.5rem)
   :host

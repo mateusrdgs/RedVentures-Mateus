@@ -8,12 +8,14 @@ export class CalendarEmitter {
   private calendarEmitter: EventEmitter<object> = new EventEmitter<object>();
 
   constructor() {
+
   }
 
-  public datePicked(date: Date, check: Check) {
+  public datePicked(date: Date, check: Check, days?: number) {
     this.calendarEmitter.emit({
       date,
-      check
+      check,
+      days
     });
   }
 
