@@ -1,6 +1,6 @@
 <div class="hotel-item__flipper__back__header">
   <h2 class="hotel-item__flipper__back__header__title" [textContent]="title"></h2>
-  <div class="hotel-item__flipper__back__header__back">
+  <div class="hotel-item__flipper__back__header__back" (click)="onFlip()">
     <arrow></arrow>
     <span class="hotel-item__flipper__back__header__back__text">Back to description</span>
   </div>

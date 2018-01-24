@@ -1,8 +1,15 @@
 @import 'variables'
 
 :host
+  backface-visibility hidden
   display flex
   flex-direction column
+  height 100%
+  left 0
+  position absolute
+  justify-content space-between
+  top 0
+  transform rotateY(-180deg)
   width 100%
 
 .hotel-item__flipper__back__header
@@ -50,6 +57,3 @@
   font 400 .8rem 'Heebo', sans-serif
   margin-top auto
 
-@media screen and (min-width 37.5rem)
-  :host
-    padding 1rem

@@ -1,20 +1,11 @@
-<div class="hotel-item__flipper">
-  <hotel-front [name]="hotel?.Name" [description]="hotel?.Description" [image]="hotel?.Image" [priceHistory]="hotel?.PriceHistory"></hotel-front>
-  <!--<hotel-back [priceHistory]="hotel?.PriceHistory"></hotel-back>-->
-</div>
-
-<!--<div class="hotel-item__data">
-  <img [src]="hotel?.Image" alt="" class="hotel-item__data__image">
-  <div class="hotel-item__data__content">
-    <h2 class="hotel-item__data__content__title" [textContent]="hotel?.Name"></h2>
-    <span class="hotel-item__data__content__description" [textContent]="hotel?.Description"></span>
-    <div class="hotel-item__data__content__buttons">
-      <button class="button primary">Book now</button>
-      <button class="button info">Price history</button>
-    </div>
+<div class="hotel-item__flip-container" [class.flipped]="flipped">
+  <img [src]="hotel?.Image" alt="name + 'picture'" class="hotel-item__flip-container__image">
+  <div class="hotel-item__flip-container__flipper">
+    <hotel-front [name]="hotel?.Name" [description]="hotel?.Description" (flip)="onFlip($event)"></hotel-front>
+    <hotel-back [priceHistory]="hotel?.PriceHistory" (flip)="onFlip($event)"></hotel-back>
   </div>
 </div>
 <div class="hotel-item__price">
   <span class="hotel-item__price__label">Total</span>
   <span class="hotel-item__price__value">$670</span>
-</div>-->
+</div>

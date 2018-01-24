@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { PriceHistory } from './../../models/price-history';
 
@@ -11,11 +11,17 @@ import { PriceHistory } from './../../models/price-history';
 export class HotelBackComponent implements OnInit {
 
   @Input() priceHistory: PriceHistory[];
+  @Output() flip: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public title = 'Price history for 2017';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onFlip(): void {
+    this.flip.emit(false);
   }
 
 }

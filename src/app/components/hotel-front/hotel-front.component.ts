@@ -1,5 +1,4 @@
-import { PriceHistory } from './../../models/price-history';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -11,12 +10,15 @@ export class HotelFrontComponent implements OnInit {
 
   @Input() name: string;
   @Input() description: string;
-  @Input() image: string;
-  @Input() priceHistory: PriceHistory[];
+  @Output() flip: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onFlip(): void {
+    this.flip.emit(true);
   }
 
 }

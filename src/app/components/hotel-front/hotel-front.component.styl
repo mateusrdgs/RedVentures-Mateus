@@ -2,49 +2,32 @@
 
 :host
   align-items center
+  backface-visibility hidden
   display flex
   flex-direction column
-  padding 1rem
-  width 100%
-
-.hotel-item__flipper__front__container
-  align-items center
-  border-bottom .1rem solid $secondary-grey
-  display flex
-  flex 1
-  flex-direction column
-  width 100%
-
-.hotel-item__flipper__front__container__image
-  display flex
-  border-radius .2rem
-  box-shadow 0 0 1rem $secondary-grey
   height 100%
-  margin-top -3rem
-  max-height 16rem
-  max-width 16rem
-  transition $hover-transition
+  transform rotateY(0)
   width 100%
-  &:hover
-    transform scale(1.03)
 
-.hotel-item__flipper__front__container__info
+.hotel-item__flip-container__front
   align-items center
   display flex
   flex-direction column
+  justify-content space-between
+  height 100%
   width 100%
 
-.hotel-item__flipper__front__container__info__name
+.hotel-item__flip-container__front__name
   font 700 1.2rem 'Heebo', sans-serif
   color $primary-orange
   text-align center
   text-transform uppercase
 
-.hotel-item__flipper__front__container__info__description
+.hotel-item__flip-container__front__description
   font 400 1rem 'Heebo', sans-serif
   color $secondary-grey
 
-.hotel-item__flipper__front__container__info__buttons
+.hotel-item__flip-container__front__buttons
   display flex
   flex-direction column
   align-items center
@@ -54,23 +37,8 @@
 .primary
   margin-bottom 1rem
 
-.hotel-item__flipper__front__price
-  align-items flex-end
-  align-self flex-end
-  display flex
-  flex-direction column
-  padding 1rem 1rem 0 1rem
-
-.hotel-item__flipper__front__price__label
-  color $secondary-grey
-  font 100 1rem 'Heebo', sans-serif
-
-.hotel-item__flipper__front__price__value
-  color $primary-green
-  font 700 2.5rem 'Montserrat', sans-serif
-
 @media screen and (min-width 26.5rem)
-  .hotel-item__flipper__front__container__info__buttons
+  .hotel-item__flip-container__front__buttons
     flex-direction row
     justify-content space-around
 
@@ -84,60 +52,17 @@
     min-height 16rem
     padding-bottom 1rem
 
-  .hotel-item__flipper__front__container__image
-    margin auto
-
-  .hotel-item__flipper__front__container__info
-    justify-content space-around
-    margin 0
-    min-height 16rem
-    padding-left 1rem
-
-  .hotel-item__flipper__front__container__info__name
+  .hotel-item__flip-container__front__name
     align-self flex-start
 
-  .hotel-item__flipper__front__container__info__buttons
+  .hotel-item__flip-container__front__buttons
     flex-direction column
 
   .primary
     margin-bottom 1rem
 
 @media screen and (min-width 44rem)
-  .hotel-item__flipper__front__container__info
-    height 100%
-  .hotel-item__flipper__front__container__info__buttons
-    flex-direction row
-
-  .primary
-    margin-bottom 0
-
-@media screen and (min-width 51rem)
-  :host
-    flex-direction row
-    padding 3rem 1rem
-
-  .hotel-item__flipper__front__container
-    border-bottom 0
-    border-right .1rem solid $secondary-grey
-    padding-bottom 0
-
-  .hotel-item__flipper__front__container__info
-    padding 0 2rem 0 2rem
-
-  .hotel-item__flipper__front__container__info__buttons
-    flex-direction column
-
-  .primary
-    margin-bottom 1rem
-
-  .hotel-item__flipper__front__price
-    align-self center
-
-@media screen and (min-width 64rem)
-  .hotel-item__flipper__front__container__image
-    margin-left -3rem
-
-  .hotel-item__flipper__front__container__info__buttons
+  .hotel-item__flip-container__front__buttons
     flex-direction row
 
   .primary

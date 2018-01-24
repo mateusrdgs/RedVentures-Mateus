@@ -12,9 +12,15 @@ export class HotelComponent implements OnInit {
 
   @Input() hotel: Hotel;
 
+  public flipped: boolean;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onFlip(event: boolean) {
+    this.flipped = event;
   }
 
 }
