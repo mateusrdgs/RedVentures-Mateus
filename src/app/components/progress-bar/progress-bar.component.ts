@@ -11,7 +11,7 @@ export class ProgressBarComponent implements OnInit {
   private _value: number;
 
   @Input() set value(value: number) {
-    this._value = this.map(value, 0, 1000, 0, 400);
+    this._value = this.map(value, 0, 1500, 0, 600);
   }
 
   get value(): number {

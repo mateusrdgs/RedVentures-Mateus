@@ -7,7 +7,6 @@
 </div>
 <ul class="hotel-item__flipper__back__price-history">
   <li class="hotel-item__flipper__back__price-history__item" *ngFor="let price of priceHistory">
-    <span class="hotel-item__flipper__back__price-history__tooltip" [textContent]="price.Value"></span>
     <progress-bar [value]="price.Value"></progress-bar>
     <span class="hotel-item__flipper__back__price-history__item__month" [textContent]="price.Month"></span>
   </li>
