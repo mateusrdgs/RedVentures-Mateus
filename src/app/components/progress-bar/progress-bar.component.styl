@@ -2,15 +2,25 @@
 
 :host
   display flex
-  height 2rem
-  transform translate(-50%, -30%) rotateZ(-90deg)
-  top 40%
-  left 50%
-  position absolute
-  width 8rem
+  background-color transparent
+  flex-direction column-reverse
+  height 75%
+  width 50%
 
-.progress
+.progress__value
+  background linear-gradient(45deg, #EE6F48, #F98100)
+  border-radius .2rem
+  height 0
+  opacity .7
+  transition $hover-transition
+  width 100%
+  &:hover
+    opacity 1
+
+/*.progress
+  display flex
   background-color #FFF
+  flex-direction column
   height 100%
   width 100%
   border 0
@@ -30,5 +40,4 @@
     &::-webkit-progress-value
       opacity 1
     &::-moz-progress-bar
-      opacity 1
-
+      opacity 1*/
