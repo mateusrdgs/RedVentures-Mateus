@@ -1,7 +1,12 @@
 <ng-container *ngIf="hotels?.length">
-  <h2 class="results-container__title" [textContent]="'Best choices between ' + checkInDate + ' and ' + checkOutDate"></h2>
-  <div class="results-container__components">
-    <filter [min]="min" [max]="max" (rangeEmitter)="onRangeEmitted($event)" (starsEmitter)="onStarsEmitted($event)"></filter>
-    <hotels [hotels]="hotels | hotels:prices:stars:days"></hotels>
-  </div>
+  <ng-container *ngIf="days > 0 else invalidDays">
+    <h2 class="results-container__title" [textContent]="'Best choices between ' + checkInDate + ' and ' + checkOutDate"></h2>
+    <div class="results-container__components">
+      <filter [min]="min" [max]="max" (rangeEmitter)="onRangeEmitted($event)" (starsEmitter)="onStarsEmitted($event)"></filter>
+      <hotels [hotels]="hotels | hotels:prices:stars:days"></hotels>
+    </div>
+  </ng-container>
+  <ng-template #invalidDays>
+    <h2 class="results-container__warning">You must choose a valid date range</h2>
+  </ng-template>
 </ng-container>

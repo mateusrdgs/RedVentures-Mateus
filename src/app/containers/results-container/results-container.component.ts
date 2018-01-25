@@ -62,7 +62,12 @@ export class ResultsContainerComponent implements OnInit, OnDestroy {
               If you're seeing this, yeah, I could just used the days property and make the request.
               But, I'm not doing this to follow the UI and let the user click the button.
             */
-            this.checkOutDate = this._datePipe.transform(datePicked.date.toLocaleDateString(), 'longDate');
+            if (datePicked.days > 0) {
+              this.checkOutDate = this._datePipe.transform(datePicked.date.toLocaleDateString(), 'longDate');
+            } else {
+              this.days = datePicked.days;
+              this.restartDateValues();
+            }
           }
         });
   }
