@@ -35,10 +35,13 @@ export class CheckComponent implements OnInit, OnDestroy {
   startDatePickingSubscription(): void {
     this.datePickSubscription
       = this._calendarEmitter.datePicked$()
-        .subscribe((datePicked: {date: Date, check: Check, days?: number }) => {
+        .subscribe((datePicked: { date: Date, check: Check, days?: number }) => {
           if (datePicked.check === Check.In) {
             this.restartCheckValues();
-            if (this.days > 0) {
+            if (this.days >= 0) {
+              this._calendarEmitter.uncheck(
+                true, datePicked.date
+              );
               this.days = 0;
             }
             this.CheckIn = this._datePipe.transform(datePicked.date.toLocaleDateString(), 'longDate');

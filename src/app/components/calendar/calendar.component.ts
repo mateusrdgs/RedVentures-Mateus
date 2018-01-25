@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+
+import { Subscription } from 'rxjs/Subscription';
+
+import { CalendarDateDirective } from './../../directives/calendar-date.directive';
 
 import { CalendarEmitter } from './../../emitters/calendar.emitter';
 
@@ -10,8 +14,14 @@ import { Check } from './../../enumerators/check.enum';
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.styl']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit, AfterViewInit {
 
+  @ViewChildren(CalendarDateDirective) dates: QueryList<CalendarDateDirective>;
+
+  private uncheckSubscription: Subscription;
+  private checkInDate: Date;
+  private checkOutDate: Date;
+  private acc = 1;
   public matrix = new Array(7);
   public currentDate = new Date(2017, 7, 1);
   public monthsOfYear = [
@@ -24,9 +34,6 @@ export class CalendarComponent implements OnInit {
     31, this.isLeapYear(this.currentDate.getFullYear()) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
   ];
   public daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  private checkInDate: Date;
-  private checkOutDate: Date;
-  private acc = 1;
 
   constructor(
     private _calendarEmitter: CalendarEmitter
@@ -41,6 +48,20 @@ export class CalendarComponent implements OnInit {
         1
       ).getDay()
     );
+  }
+
+  ngAfterViewInit() {
+    this.startUncheckSubscription();
+  }
+
+  startUncheckSubscription(): void {
+    this.uncheckSubscription =
+      this._calendarEmitter.uncheck$()
+        .subscribe((uncheck: { uncheck: boolean, date: Date }) => {
+          if (uncheck.uncheck) {
+            this.dates.forEach((date: CalendarDateDirective) => date.removeClass(uncheck.date, 'picked'));
+          }
+        });
   }
 
   private createMatrix(rows: number): any[] {
