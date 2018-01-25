@@ -54,8 +54,8 @@
   color $calendar-border
   font 400 1rem 'Heebo', sans-serif
   justify-content center
-  min-height 2.5rem
-  min-width 2.5rem
+  min-height 2rem
+  min-width 2rem
   transition $hover-transition
   &:hover
     background-color $primary-green
@@ -70,23 +70,17 @@
   color $primary-white
   &:hover
     border .1rem solid $primary-green
-    min-height 2.5rem
-    min-width 2.5rem
     background-color $primary-white
     color $primary-green
-
-/*.calendar__body__row:first-child
-  & .calendar__body__row__data:first-child
-    color $calendar-border
-
-.calendar__body__row:last-child
-  & .calendar__body__row__data:nth-last-child(-n+3)
-    color $calendar-border*/
 
 @media screen and (min-width: 37.5rem)
   :host
     max-width 18rem
     order 2
+
+  .calendar__body__row__data
+    min-height 2.5rem
+    min-width 2.5rem
 
 @media screen and (min-width: 40rem)
   :host

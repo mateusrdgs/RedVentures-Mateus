@@ -17,7 +17,7 @@ export class HotelsPipe implements PipeTransform {
           .map((hotel: Hotel) => {
             const _hotel = [
               ...Object.values(hotel),
-              hotel.Price * days
+              Math.floor(hotel.Price * days)
             ];
             return new Hotel(..._hotel);
           })

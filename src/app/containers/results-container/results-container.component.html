@@ -1,5 +1,7 @@
-<h2 class="results-container__title">Best choices between date start and date end</h2>
-<div class="results-container__components">
-  <filter [min]="min" [max]="max" (rangeEmitter)="onRangeEmitted($event)" (starsEmitter)="onStarsEmitted($event)"></filter>
-  <hotels [hotels]="hotels | hotels:prices:stars:days"></hotels>
-</div>
+<ng-container *ngIf="hotels?.length">
+  <h2 class="results-container__title" [textContent]="'Best choices between ' + checkInDate + ' and ' + checkOutDate"></h2>
+  <div class="results-container__components">
+    <filter [min]="min" [max]="max" (rangeEmitter)="onRangeEmitted($event)" (starsEmitter)="onStarsEmitted($event)"></filter>
+    <hotels [hotels]="hotels | hotels:prices:stars:days"></hotels>
+  </div>
+</ng-container>
