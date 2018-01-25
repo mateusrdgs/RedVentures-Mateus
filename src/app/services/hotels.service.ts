@@ -23,7 +23,7 @@ export class HotelsService implements IHotels {
   public getHotels(): any {
     return (
       this._http
-        .get('assets/hotels.json')
+        .get(this._url)
         .map((response: Response) => this.iterateOverHotels(response['hotels']))
         .catch(this.handleError)
     );
