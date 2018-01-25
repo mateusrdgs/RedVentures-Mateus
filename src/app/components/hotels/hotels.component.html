@@ -1,6 +1,6 @@
 <ul class="hotels">
   <ng-container *ngIf="hotels?.length else noHotels">
-    <li class="hotels__item" *ngFor="let hotel of hotels">
+    <li class="hotels__item" *ngFor="let hotel of hotels" [@enterIn]="state">
       <hotel [hotel]="hotel"></hotel>
     </li>
   </ng-container>
