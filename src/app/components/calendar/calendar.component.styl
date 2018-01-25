@@ -3,13 +3,13 @@
 :host
   display flex
   flex-direction column
-  max-width 22rem
+  width 16rem
   transition $resize-transition
-  width 100%
 
 .calendar
   display flex
   flex-direction column
+  height 100%
   width 100%
 
 .calendar__head,
@@ -51,27 +51,58 @@
   align-items center
   border-radius 50%
   display flex
+  flex 1
   color $calendar-border
   font 400 1rem 'Heebo', sans-serif
   justify-content center
-  min-height 2rem
-  min-width 2rem
+  height 2.5rem
+  width 2.5rem
   transition $hover-transition
   &:hover
     background-color $primary-green
-    color $primary-white
     cursor pointer
+    & .calendar__body__row__data__day
+      color $primary-white
+
+.calendar__body__row__data__day
+  display flex
+  align-items center
+  justify-content center
+  height 100%
+  transition $hover-transition
+  width 100%
 
 .currentMonth
-  color $primary-grey
+  & .calendar__body__row__data__day
+    color $primary-grey
+
+.picked, .range
+  background-color $primary-green
 
 .picked
   background-color $primary-green
-  color $primary-white
   &:hover
-    border .1rem solid $primary-green
+    & .calendar__body__row__data__day
+      border .09rem solid $primary-green
+      background-color $primary-white
+      border-radius 50%
+      color $primary-green
+  & .calendar__body__row__data__day
+    color $primary-white
+
+.range
+  border-radius 0
+  &:hover .calendar__body__row__data__day
+    border .09rem solid $primary-green
     background-color $primary-white
+    border-radius 50%
     color $primary-green
+  & .calendar__body__row__data__day
+    color $primary-white
+
+.picked.range
+  border-top-left-radius 50%
+  border-bottom-left-radius 50%
 
 @media screen and (min-width: 37.5rem)
   :host
