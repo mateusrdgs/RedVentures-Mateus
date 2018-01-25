@@ -48,12 +48,16 @@ export class CheckComponent implements OnInit, OnDestroy {
           } else {
             this.CheckOut = this._datePipe.transform(datePicked.date.toLocaleDateString(), 'longDate');
             if (datePicked.days > 0) {
-              if (this.days >= 0) {
-                this.days = datePicked.days;
+              this.days = datePicked.days;
+              this._checkOutEmitter.checkoutPicked(this.days);
+              /*if (this.days > 0) {
                 this._checkOutEmitter.checkoutPicked(this.days);
               } else {
                 this.days = datePicked.days;
-              }
+              }*/
+            } else {
+              this.restartCheckValues();
+              this.days = undefined;
             }
           }
         });

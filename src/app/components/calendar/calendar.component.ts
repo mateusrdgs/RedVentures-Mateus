@@ -60,7 +60,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       this._calendarEmitter.uncheck$()
         .subscribe((uncheck: { uncheck: boolean, date: Date }) => {
           if (uncheck.uncheck) {
-            this.dates.forEach((date: CalendarDateDirective) => date.removeClass(uncheck.date, 'picked'));
+            this.dates
+              .forEach((date: CalendarDateDirective) => date.removeClasses(uncheck.date, ['picked', 'range', 'range-start', 'range-end']));
           }
         });
   }
@@ -157,7 +158,15 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   private paintRange(endIndex: number) {
     let index = this.rangeStartIndex;
     for (index; index <= endIndex; index++) {
-      this.dates.forEach((date: CalendarDateDirective) => date.addClass(index, 'range'));
+      this.dates.forEach((date: CalendarDateDirective, _index: number) => {
+        if (_index === this.rangeStartIndex) {
+          date.addClass(index, 'range-start');
+        }
+        if (_index === endIndex) {
+          date.addClass(index, 'range-end');
+        }
+        date.addClass(index, 'range');
+      });
     }
   }
 

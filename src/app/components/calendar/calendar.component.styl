@@ -3,7 +3,8 @@
 :host
   display flex
   flex-direction column
-  width 16rem
+  max-width 16rem
+  width 100%
   transition $resize-transition
 
 .calendar
@@ -44,8 +45,7 @@
 
 .calendar__body__row
   justify-content space-around
-  &:first-child
-    padding-top .5rem
+  padding-top .5rem
 
 .calendar__body__row__data
   align-items center
@@ -100,19 +100,20 @@
   & .calendar__body__row__data__day
     color $primary-white
 
-.picked.range
+.range-start
   border-top-left-radius 50%
   border-bottom-left-radius 50%
 
+.range-end
+  border-top-right-radius 50%
+  border-bottom-right-radius 50%
+
 @media screen and (min-width: 37.5rem)
   :host
-    max-width 18rem
+    max-width 17.5rem
+    width 100%
     order 2
 
   .calendar__body__row__data
     min-height 2.5rem
     min-width 2.5rem
-
-@media screen and (min-width: 40rem)
-  :host
-    max-width 22rem
