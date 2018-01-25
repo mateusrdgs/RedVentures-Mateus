@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, OnInit, OnDestroy, Output } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 import { Observable } from 'rxjs/Observable';
@@ -21,6 +21,8 @@ import { Check } from './../../enumerators/check.enum';
   styleUrls: ['./results-container.component.styl']
 })
 export class ResultsContainerComponent implements OnInit, OnDestroy {
+
+  @Output() hotelsSubscription: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   private _hotelsSubscription: Subscription;
   private _calendarSubscription: Subscription;
@@ -91,6 +93,7 @@ export class ResultsContainerComponent implements OnInit, OnDestroy {
           this.min = this.prices[0];
           this.max = this.prices[1];
         });
+    this.hotelsSubscription.emit(true);
   }
 
   restartDateValues(): void {

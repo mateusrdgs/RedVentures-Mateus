@@ -1,4 +1,4 @@
 <main class="content">
-  <calendar-container></calendar-container>
-  <results-container></results-container>
+  <calendar-container [alreadySubscribed]="alreadySubscribed"></calendar-container>
+  <results-container (hotelsSubscription)="onStartHotelsSubscription($event)"></results-container>
 </main>

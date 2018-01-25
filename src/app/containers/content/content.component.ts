@@ -11,12 +11,18 @@ import { Hotel } from '../../models/hotel';
 })
 export class ContentComponent implements OnInit {
 
+  public alreadySubscribed: boolean;
+
   constructor(
     private _hotelsService: HotelsService
   ) { }
 
   ngOnInit() {
 
+  }
+
+  onStartHotelsSubscription(event: boolean): void {
+    this.alreadySubscribed = event;
   }
 
 }

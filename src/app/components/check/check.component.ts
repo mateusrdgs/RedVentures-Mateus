@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -16,6 +16,7 @@ import { Check } from './../../enumerators/check.enum';
 })
 export class CheckComponent implements OnInit, OnDestroy {
 
+  @Input() alreadySubscribed: boolean;
   private datePickSubscription: Subscription;
   public CheckIn: string;
   public CheckOut: string;
@@ -38,26 +39,22 @@ export class CheckComponent implements OnInit, OnDestroy {
         .subscribe((datePicked: { date: Date, check: Check, days?: number }) => {
           if (datePicked.check === Check.In) {
             this.restartCheckValues();
-            if (this.days >= 0) {
+            if (this.days > 0) {
               this._calendarEmitter.uncheck(
                 true, datePicked.date
               );
-              this.days = 0;
+              this.days = undefined;
             }
             this.CheckIn = this._datePipe.transform(datePicked.date.toLocaleDateString(), 'longDate');
           } else {
             this.CheckOut = this._datePipe.transform(datePicked.date.toLocaleDateString(), 'longDate');
             if (datePicked.days > 0) {
+              if (this.alreadySubscribed) {
+                this._checkOutEmitter.checkoutPicked(datePicked.days);
+              }
               this.days = datePicked.days;
-              this._checkOutEmitter.checkoutPicked(this.days);
-              /*if (this.days > 0) {
-                this._checkOutEmitter.checkoutPicked(this.days);
-              } else {
-                this.days = datePicked.days;
-              }*/
             } else {
               this.restartCheckValues();
-              this.days = undefined;
             }
           }
         });
