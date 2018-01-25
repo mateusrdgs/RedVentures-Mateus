@@ -60,8 +60,13 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       this._calendarEmitter.uncheck$()
         .subscribe((uncheck: { uncheck: boolean, date: Date }) => {
           if (uncheck.uncheck) {
-            this.dates
-              .forEach((date: CalendarDateDirective) => date.removeClasses(uncheck.date, ['picked', 'range', 'range-start', 'range-end']));
+            if (uncheck.date) {
+              this.dates
+              .forEach((date: CalendarDateDirective) => date.removeClasses(['picked', 'range', 'range-start', 'range-end'], uncheck.date));
+            } else {
+              this.dates
+              .forEach((date: CalendarDateDirective) => date.removeClasses(['picked']));
+            }
           }
         });
   }

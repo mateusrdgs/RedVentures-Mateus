@@ -55,6 +55,7 @@ export class CheckComponent implements OnInit, OnDestroy {
               this.days = datePicked.days;
             } else {
               this.restartCheckValues();
+              this._calendarEmitter.uncheck(true);
             }
           }
         });

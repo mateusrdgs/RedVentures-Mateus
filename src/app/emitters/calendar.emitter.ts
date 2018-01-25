@@ -26,11 +26,17 @@ export class CalendarEmitter {
     return this.calendarEmitter.asObservable();
   }
 
-  public uncheck(uncheck: boolean, date: Date): void {
-    this.uncheckEmitter.emit({
-      uncheck,
-      date
-    });
+  public uncheck(uncheck: boolean, date?: Date): void {
+    if (date) {
+      this.uncheckEmitter.emit({
+        uncheck,
+        date
+      });
+    } else {
+      this.uncheckEmitter.emit({
+        uncheck
+      });
+    }
   }
 
   public uncheck$(): Observable<any> {

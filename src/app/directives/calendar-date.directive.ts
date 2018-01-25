@@ -25,7 +25,7 @@ export class CalendarDateDirective {
     ).setHours(0, 0, 0, 0);
     const isBiggerOrEqual = pickedDate >= currentDate;
     if (isBiggerOrEqual) {
-      this.removeClasses(new Date(), ['range']);
+      this.removeClasses(['range']);
       const index = parseInt(
         this._elementRef.nativeElement.getAttribute('data-index'),
         10
@@ -51,11 +51,15 @@ export class CalendarDateDirective {
     }
   }
 
-  public removeClasses(date: Date, classes: string[]): void {
-    const _date = new Date(
-      this._elementRef.nativeElement.getAttribute('data-date')
-    ).setHours(0, 0, 0, 0);
-    if ((date.setHours(0, 0, 0, 0)) !== _date) {
+  public removeClasses(classes: string[], date?: Date): void {
+    if (date) {
+      const _date = new Date(
+        this._elementRef.nativeElement.getAttribute('data-date')
+      ).setHours(0, 0, 0, 0);
+      if ((date.setHours(0, 0, 0, 0)) !== _date) {
+        classes.forEach((className: string) => this._renderer2.removeClass(this._elementRef.nativeElement, className));
+      }
+    } else {
       classes.forEach((className: string) => this._renderer2.removeClass(this._elementRef.nativeElement, className));
     }
   }
