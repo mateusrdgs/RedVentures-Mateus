@@ -10,10 +10,19 @@ import { PriceHistory } from './../../models/price-history';
 })
 export class HotelBackComponent implements OnInit {
 
-  @Input() priceHistory: PriceHistory[];
+  @Input() set priceHistory(priceHistory: PriceHistory[]) {
+    this.max = Math.max(...priceHistory.map((price: PriceHistory) => price.Value));
+    this._priceHistory = priceHistory;
+  }
+  get priceHistory(): PriceHistory[] {
+    return this._priceHistory;
+  }
+
   @Output() flip: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public title = 'Price history for 2017';
+  private _priceHistory: PriceHistory[];
+  public max: number;
 
   constructor() { }
 

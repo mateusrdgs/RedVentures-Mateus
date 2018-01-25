@@ -8,23 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProgressBarComponent implements OnInit {
 
-  private _value: number;
+  public percentage: number;
+  public _value: number;
 
+  @Input() max: number;
   @Input() set value(value: number) {
-    this._value = this.map(value, 0, 1500, 0, 600);
-  }
-
-  get value(): number {
-    return this._value;
+    this.percentage = Math.floor(value * 100 / this.max);
+    this._value = value;
   }
 
   constructor() { }
 
   ngOnInit() {
-  }
 
-  private map(x: number, inMin: number, inMax: number, outMin: number, outMax: number): number {
-    return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
   }
 
 }
